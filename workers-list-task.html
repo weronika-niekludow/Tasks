@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap"
+        rel="stylesheet">
+    <title>Document II</title>
+    <style>
+        body {
+            margin: 0 10rem;
+            display: flex;
+            flex-direction: column;
+            align-content: space-between;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .btn:focus,
+        .btn:active {
+            outline: none !important;
+            box-shadow: none;
+        }
+
+        .boxes {
+            height: 36px;
+            font-size: 14px;
+            border: solid 1px #c7c7c7;
+            border-radius: 10px;
+            box-shadow: none;
+        }
+
+        .search {
+
+            margin: 0;
+            width: 400px !important;
+        }
+
+        .buttons {
+            min-width: 100px;
+            font-size: 14px;
+            border-radius: 10px;
+        }
+
+        .range {
+            width: 260px;
+            margin-inline-end: 20px;
+        }
+
+        .radius-border {
+            border-radius: 10px;
+        }
+
+        .font-size {
+            font-size: 14px;
+        }
+
+        .line {
+            border-bottom: solid 0.5px #e6e6e6;
+            margin-block: 30px;
+        }
+
+        .addBtn {
+
+            height: 90px;
+            width: 140px;
+            border-radius: 20px;
+            background-color: #a183d9;
+            color: white;
+            cursor: pointer;
+            font-style: italic;
+            font-family: inherit;
+            text-transform: uppercase;
+            border: none;
+            transition: background-color 0.2s;
+        }
+
+        .workersForm {
+            display: flex;
+            margin: 0 auto;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 100px;
+        }
+
+        .title {
+            font-size: larger;
+
+            display: flex;
+            align-items: flex-end;
+        }
+
+        input {
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 1px 1px rgb(128 128 128 / 28%);
+            width: 250px;
+            height: 25px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        #department {
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 1px 1px rgba(128, 128, 128, 0.279);
+            width: 50%;
+            padding-left: 10px;
+            cursor: pointer;
+        }
+
+        #rangeInput {
+            cursor: pointer;
+            border: none;
+        }
+
+        */ button:hover {
+            background-color: rgb(189, 184, 184);
+        }
+
+        button:disabled:hover {
+            background-color: black;
+            cursor: default;
+        }
+
+
+
+        /* -------------slider------------ */
+
+        :root {
+            --ColorPrimaryDk: #193957;
+            --ColorPrimaryLt: #eda900;
+        }
+
+        body {
+            padding: 60px 16px 0;
+        }
+
+
+        .range-slider {
+            --range-slider-common-height: 16px;
+            --range-slider-handle-width: 20px;
+            --range-slider-handle-height: 20px;
+
+            position: relative;
+            display: flex;
+            width: 300px;
+            height: 100%;
+            top: 5px;
+            right: 20px;
+        }
+
+
+        .range-slider>div {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            left: 13px;
+            right: 15px;
+            height: var(--range-slider-common-height);
+
+        }
+
+        .range-slider>div>.range-slider-val-left,
+        .range-slider>div>.range-slider-val-right,
+        .range-slider>div>.range-slider-val-range {
+            height: 5px;
+        }
+
+        .range-slider>div>.range-slider-val-left {
+            position: absolute;
+            left: 0;
+            border-radius: 10px;
+            background-color: #ffe5a3;
+            margin: 0 7px;
+        }
+
+        .range-slider>div>.range-slider-val-right {
+            position: absolute;
+            right: 0;
+            margin: 0 7px;
+            border-radius: 10px;
+            background-color: #ffe5a3;
+        }
+
+        .range-slider>div>.range-slider-val-range {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            height: 5px;
+            border-radius: 14px;
+            background-color: var(--ColorPrimaryLt);
+        }
+
+        .range-slider>div>.range-slider-handle {
+            z-index: 1;
+            position: absolute;
+            top: -3px;
+            margin-left: -11px;
+            width: var(--range-slider-handle-width);
+            height: var(--range-slider-handle-height);
+            border-radius: 50%;
+            background-color: #fff;
+            text-align: left;
+
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+            outline: none;
+            cursor: pointer;
+        }
+
+        div.range-slider>input[type="range"]::-ms-thumb {
+            width: var(--range-slider-handle-width);
+            height: var(--range-slider-handle-height);
+            border: 0 none;
+            border-radius: 0px;
+            background: red;
+            pointer-events: all;
+
+        }
+
+        div.range-slider>input[type="range"]::-moz-range-thumb {
+            width: var(--range-slider-handle-width);
+            height: var(--range-slider-handle-height);
+            border: 0 none;
+            border-radius: 0px;
+            background: red;
+
+            pointer-events: all;
+        }
+
+        div.range-slider>input[type="range"]::-webkit-slider-thumb {
+            width: var(--range-slider-handle-width);
+            height: var(--range-slider-handle-height);
+            border: 0 none;
+            border-radius: 0px;
+            background: red;
+            pointer-events: all;
+            -webkit-appearance: none;
+        }
+
+        div.range-slider>input[type="range"]::-ms-fill-lower {
+            background: transparent;
+            border: 0 none;
+        }
+
+        div.range-slider>input[type="range"]::-ms-fill-upper {
+            background: transparent;
+            border: 0 none;
+        }
+
+        .range-slider>input[type="range"] {
+            z-index: 1;
+            position: absolute;
+            width: 100%;
+            height: var(--range-slider-common-height);
+
+            opacity: 0;
+            filter: alpha(opacity=0);
+            cursor: pointer;
+            pointer-events: none;
+            -webkit-appearance: none;
+        }
+
+        div.range-slider>input[type="range"]::-ms-track {
+            background: transparent;
+            color: transparent;
+            -webkit-appearance: none;
+        }
+
+        div.range-slider>input[type="range"]::-moz-range-track {
+            background: transparent;
+            color: transparent;
+            -moz-appearance: none;
+        }
+
+        div.range-slider>input[type="range"]:focus::-webkit-slider-runnable-track {
+            background: transparent;
+            border: transparent;
+        }
+
+        div.range-slider>input[type="range"]:focus {
+            outline: none;
+        }
+
+        div.range-slider>input[type="range"]::-ms-tooltip {
+            display: none;
+        }
+
+        .range-slider>div>.range-slider-tooltip {
+            z-index: 2;
+            position: absolute;
+            top: -42px;
+            margin-left: -12px;
+            width: 28px;
+            height: 28px;
+            border-radius: 28px;
+            background-color: var(--ColorPrimaryLt);
+            color: #fff;
+            text-align: center;
+            opacity: 0;
+        }
+
+        .range-slider>div>.range-slider-tooltip:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 19px;
+            border-left: 14px solid transparent;
+            border-right: 14px solid transparent;
+            border-top-width: 16px;
+            border-top-style: solid;
+            border-top-color: var(--ColorPrimaryLt);
+            border-radius: 16px;
+        }
+
+        .range-slider>div>.range-slider-tooltip>span {
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 28px;
+        }
+
+        .range-slider:hover>div>.range-slider-tooltip {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body class="container-fluid">
+
+    <h3 class="mt-4">Recruitment task (#11726FD)</h3>
+
+    <div class="workersForm ">
+        <div class="d-flex">
+
+            <form class="form-inline my-2 my-lg-0 ">
+                <input class="form-control mr-sm-2 boxes search " type="search" placeholder="Search workers here..."
+                    aria-label="Search" id="search-input">
+            </form>
+
+            <div class="form-group mb-0  ml-2">
+                <select class="form-control boxes" id="select-department" placeholder="Select Departments">
+                    <option selected>All Departments</option>
+                    <option>IT</option>
+                    <option>Sales</option>
+                    <option>Administration</option>
+                </select>
+            </div>
+
+            <div class="d-flex mt-2">
+                <span class="mr-4 ml-3 font-size "> Salary Range</span>
+                <span class="range">
+
+                    <div id="RangeSlider" class="range-slider">
+                        <div>
+                            <div class="range-slider-val-left"></div>
+                            <div class="range-slider-val-right"></div>
+                            <div class="range-slider-val-range"></div>
+
+                            <span class="range-slider-handle range-slider-handle-left"></span>
+                            <span class="range-slider-handle range-slider-handle-right"></span>
+
+                            <div class="range-slider-tooltip range-slider-tooltip-left">
+                                <span class="range-slider-tooltip-text"></span>
+                            </div>
+
+                            <div class="range-slider-tooltip range-slider-tooltip-right">
+                                <span class="range-slider-tooltip-text"></span>
+                            </div>
+                        </div>
+
+                        <input type="range" class="range-slider-input-left" tabindex="0" max="100" min="0" step="1">
+                        <input type="range" class="range-slider-input-right" tabindex="0" max="100" min="0" step="1">
+                    </div>
+                </span>
+
+            </div>
+
+            <button id="search-btn" class="btn btn-outline-dark my-2 my-sm-0 buttons" type="submit">Search</button>
+        </div>
+        <div>
+
+            <buttontype="button" class="btn btn-warning buttons" data-toggle="modal" data-target="#exampleModal"> + Add
+                Employee
+                </buttontype=>
+        </div>
+    </div>
+
+    <div class="line"></div>
+
+
+
+
+    <section class="tableSection font-size">
+
+        <table class="table table-striped table-hover  table-borderless" class="col-sm-12 col-md-6 col-xl-3">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Salary</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+
+
+            </tbody>
+            <thead>
+                <tr>
+                    <th id="total-employees" scope="col">Employees</th>
+                    <th scope="col">Total Salary</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th id="total-salary" scope="col">Salary</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+        </table>
+    </section>
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content radius-border">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add New Employee</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" id="first" class="form-control ml-0 boxes" placeholder="First name">
+                            </div>
+                            <div class="col">
+                                <input type="text" id="last" class="form-control ml-0 boxes" placeholder="Last name">
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group mt-4">
+                            <label for="select">Select Department</label>
+                            <select class="form-control boxes" id="select">
+                                <option>IT</option>
+                                <option>Sales</option>
+                                <option>Administration</option>
+
+                            </select>
+                        </div>
+                        <div class="mt-4">
+                            <input type="number" id="salary" class="form-control ml-0 boxes" placeholder="Salary"
+                                min="0" max="10000">
+                        </div>
+
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary buttons" data-dismiss="modal">Close</button>
+                    <button type="button" id="save-btn" class="btn btn-warning buttons" data-dismiss="modal">Save
+                        Employee</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+
+        const rangeSlider_min = 30;
+        const rangeSlider_max = 60;
+
+        document.querySelector('#RangeSlider .range-slider-val-left').style.width = `${rangeSlider_min + (100 - rangeSlider_max)}%`;
+        document.querySelector('#RangeSlider .range-slider-val-right').style.width = `${rangeSlider_min + (100 - rangeSlider_max)}%`;
+
+        document.querySelector('#RangeSlider .range-slider-val-range').style.left = `${rangeSlider_min}%`;
+        document.querySelector('#RangeSlider .range-slider-val-range').style.right = `${(100 - rangeSlider_max)}%`;
+
+        document.querySelector('#RangeSlider .range-slider-handle-left').style.left = `${rangeSlider_min}%`;
+        document.querySelector('#RangeSlider .range-slider-handle-right').style.left = `${rangeSlider_max}%`;
+
+        document.querySelector('#RangeSlider .range-slider-tooltip-left').style.left = `${rangeSlider_min}%`;
+        document.querySelector('#RangeSlider .range-slider-tooltip-right').style.left = `${rangeSlider_max}%`;
+
+        document.querySelector('#RangeSlider .range-slider-tooltip-left .range-slider-tooltip-text').innerText = rangeSlider_min + "K";
+        document.querySelector('#RangeSlider .range-slider-tooltip-right .range-slider-tooltip-text').innerText = rangeSlider_max + "K";
+
+        document.querySelector('#RangeSlider .range-slider-input-left').value = rangeSlider_min;
+        document.querySelector('#RangeSlider .range-slider-input-left').addEventListener('input', e => {
+            e.target.value = Math.min(e.target.value, e.target.parentNode.childNodes[5].value - 1);
+            let value = (100 / (parseInt(e.target.max) - parseInt(e.target.min))) * parseInt(e.target.value) - (100 / (parseInt(e.target.max) - parseInt(e.target.min))) * parseInt(e.target.min);
+
+            let children = e.target.parentNode.childNodes[1].childNodes;
+            children[1].style.width = `${value}%`;
+            children[5].style.left = `${value}%`;
+            children[7].style.left = `${value}%`;
+            children[11].style.left = `${value}%`;
+
+            children[11].childNodes[1].innerHTML = `${e.target.value}K`;
+
+        });
+
+        document.querySelector('#RangeSlider .range-slider-input-right').value = rangeSlider_max;
+        document.querySelector('#RangeSlider .range-slider-input-right').addEventListener('input', e => {
+            e.target.value = Math.max(e.target.value, e.target.parentNode.childNodes[3].value - (-1));
+            let value = (100 / (parseInt(e.target.max) - parseInt(e.target.min))) * parseInt(e.target.value) - (100 / (parseInt(e.target.max) - parseInt(e.target.min))) * parseInt(e.target.min);
+
+            let children = e.target.parentNode.childNodes[1].childNodes;
+            children[3].style.width = `${100 - value}%`;
+            children[5].style.right = `${100 - value}%`;
+            children[9].style.left = `${value}%`;
+            children[13].style.left = `${value}%`;
+
+            children[13].childNodes[1].innerHTML = `${e.target.value}K`;
+
+
+        });
+
+
+
+        //----------------------Modal Data ----------
+
+
+
+        let workers = []
+
+
+        const saveButton = document.querySelector("#save-btn")
+        let workerCount = 0
+
+
+        function calculateTotalSalary(array) {
+            const totalSalary = array.reduce((sum, worker) => sum + worker.salary, 0);
+            const totalSalaryCell = document.querySelector("#total-salary");
+            totalSalaryCell.textContent = totalSalary;
+        }
+
+        saveButton.addEventListener("click", () => {
+
+
+            //targetting the inputs values from each input
+            const firstName = document.querySelector("#first").value
+            const lastName = document.querySelector("#last").value
+            const department = document.querySelector("#select").value
+            const salaryValue = Number(document.querySelector("#salary").value)
+            if (salaryValue > 100000 || salaryValue < 0) {
+                alert("For better filtering experience, salary value should be between 0 and 100.000")
+
+
+            }
+
+            const salary = Number(document.querySelector("#salary").value)
+
+
+
+
+            const workerExists = workers.some(worker => (
+                worker.firstName === firstName && worker.lastName === lastName
+            ));
+            if (workerExists) {
+                alert(`${firstName} ${lastName} already exists in the table!`);
+                return;
+            }
+
+            const worker = { firstName, lastName, department, salary }
+            workers.push(worker)
+            workerCount++
+            const tableBody = document.querySelector("#table-body")
+
+            tableBody.innerHTML = "",
+                workers.forEach((worker, index) => {
+
+                    const row = document.createElement("tr");
+                    const numCell = document.createElement("th");
+                    numCell.setAttribute("scope", "row");
+                    numCell.textContent = index + 1;
+                    row.appendChild(numCell);
+
+                    const firstNameCell = document.createElement("td");
+                    firstNameCell.textContent = worker.firstName;
+                    row.appendChild(firstNameCell);
+
+                    const lastNameCell = document.createElement("td");
+                    lastNameCell.textContent = worker.lastName;
+                    row.appendChild(lastNameCell);
+
+                    const departmentCell = document.createElement("td");
+                    departmentCell.textContent = worker.department;
+                    row.appendChild(departmentCell);
+
+                    const salaryCell = document.createElement("td");
+                    salaryCell.textContent = worker.salary;
+                    row.appendChild(salaryCell);
+
+                    const deleteCell = document.createElement("td");
+                    const deleteButton = document.createElement("button");
+                    deleteButton.classList.add("btn", "btn-outline-danger", "btn-sm", "buttons");
+                    deleteButton.textContent = "Delete";
+                    deleteButton.addEventListener("click", () => {
+                        row.remove();
+                        workers = workers.filter((w) => w !== worker);
+                        const remainingWorkers = workers.length
+                        const totalEmployees = document.querySelector("#total-employees")
+                        totalEmployees.textContent = `All employees ${remainingWorkers}`
+
+                        calculateTotalSalary(workers)
+
+
+
+                    });
+                    deleteCell.appendChild(deleteButton);
+                    row.appendChild(deleteCell);
+
+                    tableBody.appendChild(row);
+                })
+
+
+
+            const allWorkers = workers.length
+
+            const totalEmployees = document.querySelector("#total-employees")
+            totalEmployees.textContent = `All employees ${allWorkers}`
+
+
+
+            calculateTotalSalary(workers)
+
+
+
+        })
+
+
+        const searchWorkers = () => {
+            const searchArea = document.querySelector("#search-input");
+            const searchValue = searchArea.value.toLowerCase();
+            const departmentValue = document.querySelector("#select-department").value;
+            const minRange = document.querySelector("#RangeSlider .range-slider-input-left");
+            const maxRange = document.querySelector("#RangeSlider .range-slider-input-right");
+            const minSalary = parseInt(minRange.value);
+            const maxSalary = parseInt(maxRange.value);
+
+
+
+            const searchResults = workers.filter((worker) => {
+
+                const nameMatches = worker.firstName.toLowerCase().includes(searchValue) || worker.lastName.toLowerCase().includes(searchValue);
+                const deptMatches = departmentValue === "All Departments" || worker.department === departmentValue;
+                const salaryInRange = (worker.salary / 1000) >= minSalary && (worker.salary / 1000) <= maxSalary;
+                return nameMatches && deptMatches && salaryInRange
+            })
+
+            console.log("searchResults", searchResults)
+
+
+            const tableBody = document.querySelector("#table-body")
+
+            tableBody.innerHTML = "",
+                searchResults.forEach((worker, index) => {
+
+                    const row = document.createElement("tr");
+                    const numCell = document.createElement("th");
+                    numCell.setAttribute("scope", "row");
+                    numCell.textContent = index + 1;
+                    row.appendChild(numCell);
+
+                    const firstNameCell = document.createElement("td");
+                    firstNameCell.textContent = worker.firstName;
+                    row.appendChild(firstNameCell);
+
+                    const lastNameCell = document.createElement("td");
+                    lastNameCell.textContent = worker.lastName;
+                    row.appendChild(lastNameCell);
+
+                    const departmentCell = document.createElement("td");
+                    departmentCell.textContent = worker.department;
+                    row.appendChild(departmentCell);
+
+                    const salaryCell = document.createElement("td");
+                    salaryCell.textContent = worker.salary;
+                    row.appendChild(salaryCell);
+
+                    const deleteCell = document.createElement("td");
+                    const deleteButton = document.createElement("button");
+                    deleteButton.classList.add("btn", "btn-outline-danger", "btn-sm", "buttons");
+                    deleteButton.textContent = "Delete";
+                    deleteButton.addEventListener("click", () => {
+                        row.remove();
+                        workers = workers.filter((w) => w !== worker);
+                        const remainingWorkers = workers.length
+                        const totalEmployees = document.querySelector("#total-employees")
+                        totalEmployees.textContent = `All employees ${remainingWorkers}`
+
+                        calculateTotalSalary(workers)
+
+                    });
+                    deleteCell.appendChild(deleteButton);
+                    row.appendChild(deleteCell);
+
+                    tableBody.appendChild(row);
+                })
+
+            console.log(searchResults)
+            console.log("workers", workers)
+
+            const searchResultsLength = searchResults.length
+            const totalEmployees = document.querySelector("#total-employees")
+            totalEmployees.textContent = `All employees ${searchResultsLength}`
+
+
+            calculateTotalSalary(searchResults)
+
+        }
+
+        const searchButton = document.querySelector("#search-btn")
+        searchButton.addEventListener('click', searchWorkers)
+
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
